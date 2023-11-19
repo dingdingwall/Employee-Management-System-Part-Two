@@ -10,18 +10,11 @@ using System.Windows.Forms;
 
 namespace Employee_Management_System_Part_Two
 {
-    public partial class Admin : Form
+    public partial class AddEmployee : Form
     {
-        public Admin()
+        public AddEmployee()
         {
             InitializeComponent();
-        }
-
-        private void btn_addEmployee_Click(object sender, EventArgs e)
-        {
-            AddEmployee add = new AddEmployee();
-            add.Show();
-            this.Hide();
         }
     }
 }

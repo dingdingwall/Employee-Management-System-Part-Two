@@ -89,6 +89,7 @@
             this.btn_addEmployee.TabIndex = 2;
             this.btn_addEmployee.Text = "ADD NEW EMPLOYEE";
             this.btn_addEmployee.UseVisualStyleBackColor = true;
+            this.btn_addEmployee.Click += new System.EventHandler(this.btn_addEmployee_Click);
             // 
             // btn_Salary
             // 
@@ -206,7 +207,7 @@
             this.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Admin";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Admin";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
