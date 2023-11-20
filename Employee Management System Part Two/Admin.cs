@@ -23,5 +23,10 @@ namespace Employee_Management_System_Part_Two
             add.Show();
             this.Hide();
         }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
