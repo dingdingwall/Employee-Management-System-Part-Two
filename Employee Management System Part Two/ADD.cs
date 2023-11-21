@@ -23,7 +23,7 @@ namespace Employee_Management_System_Part_Two
 
         private void AddEmployee_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'eMS_DATABASEDataSet.EMPLOYEE' table. You can move, or remove it, as needed.
+            // Loads the database diagram
             this.eMPLOYEETableAdapter.Fill(this.eMS_DATABASEDataSet.EMPLOYEE);
 
         }
@@ -31,7 +31,7 @@ namespace Employee_Management_System_Part_Two
         private void btn_Insert_Click(object sender, EventArgs e)
         {
            
-            // Get the values from the textboxes
+            // Magkuha sa values sa textboxes
 
 
             string ID, EmployeeName, Address, Email, Date, Contact;
@@ -65,7 +65,7 @@ namespace Employee_Management_System_Part_Two
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
-                    // Add parameters to the query
+                    // Mag add og  parameters sa  query
                     cmd.Parameters.AddWithValue("@ID", ID);
                     cmd.Parameters.AddWithValue("@EmployeeName", EmployeeName);
                     cmd.Parameters.AddWithValue("@Address", Address);
@@ -73,7 +73,7 @@ namespace Employee_Management_System_Part_Two
                     cmd.Parameters.AddWithValue("@Date", Date);
                     cmd.Parameters.AddWithValue("@Contact", Contact);
 
-                    // Execute the query
+                    // E-execute ang Query
                     int rowsAffected = cmd.ExecuteNonQuery();
 
                     if (rowsAffected > 0)
