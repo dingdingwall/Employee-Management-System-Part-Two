@@ -17,7 +17,7 @@ namespace Employee_Management_System_Part_Two
 {
     public partial class ADD : Form
     {
-
+        // mao di siya e import para kabuhat og murag round nga buttons
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         private static extern IntPtr CreateRoundRectRgn(int nLeftRect, int nTopRect, int nRightRect, int nBottomRect, int nWidthEllipse, int nHeightEllipse);
 
@@ -25,7 +25,7 @@ namespace Employee_Management_System_Part_Two
         {
             InitializeComponent();
 
-
+            // styles para sa buttons
             btn_Delete.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btn_Delete.Width, btn_Delete.Height, 30, 30));
             btn_Reset.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btn_Reset.Width, btn_Insert.Height, 30, 30));
             btn_Insert.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btn_Insert.Width, btn_Insert.Height, 30, 30));
@@ -154,6 +154,9 @@ namespace Employee_Management_System_Part_Two
 
         private void btn_Reset_Click(object sender, EventArgs e)
         {
+
+            //Clears the fields or textboxes 
+
             txtbox_ID.Text ="";
            txtbox_EmployeeName.Text ="";
             txtbox_Address.Text = "";
