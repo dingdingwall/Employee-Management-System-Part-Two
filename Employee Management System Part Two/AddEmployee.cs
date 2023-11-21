@@ -47,7 +47,7 @@ namespace Employee_Management_System_Part_Two
             if (string.IsNullOrEmpty(ID) || string.IsNullOrEmpty(EmployeeName) || string.IsNullOrEmpty(Address) ||
                 string.IsNullOrEmpty(Email) || string.IsNullOrEmpty(Date) || string.IsNullOrEmpty(Contact))
             {
-                MessageBox.Show("Please fill in all the fields. None of the fields can be empty.");
+                MessageBox.Show("Please fill in all the fields. None of the fields can be empty.", "invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return; // Exit the method without executing the insert query
             }
 
@@ -79,12 +79,13 @@ namespace Employee_Management_System_Part_Two
                     if (rowsAffected > 0)
                     {
 
-                        MessageBox.Show("Employee added successfully!");
+                        MessageBox.Show("Employee added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.eMPLOYEETableAdapter.Fill(this.eMS_DATABASEDataSet.EMPLOYEE);
                     }
                     else
                     {
-                        MessageBox.Show("Failed to add employee.");
+                        
+                        MessageBox.Show("Failed to add employee.", " Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
 
                 }
@@ -100,29 +101,38 @@ namespace Employee_Management_System_Part_Two
             // Create a SqlConnection
             using (SqlConnection conn = new SqlConnection("Data Source=DESKTOP-DCPNVH9\\SQLEXPRESS;Initial Catalog=EMS_DATABASE;Integrated Security=True"))
             {
-                conn.Open();
-
-                // Use parameterized query to avoid SQL injection
-                string query = "DELETE FROM EMPLOYEE WHERE ID = @ID";
-
-                using (SqlCommand cmd = new SqlCommand(query, conn))
+                try
                 {
-                    // Add parameter to the query
-                    cmd.Parameters.AddWithValue("@ID", ID);
+                    conn.Open();
 
-                    // Execute the query
-                    int rowsAffected = cmd.ExecuteNonQuery();
+                    // Use parameterized query to avoid SQL injection
+                    string query = "DELETE FROM EMPLOYEE WHERE ID = @ID";
 
-                    if (rowsAffected > 0)
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
-                        MessageBox.Show("Employee deleted successfully!");
-                        this.eMPLOYEETableAdapter.Fill(this.eMS_DATABASEDataSet.EMPLOYEE);
-                    }
-                    else
-                    {
-                        MessageBox.Show("No employee found with the given ID.");
+                        // Add parameter to the query
+                        cmd.Parameters.AddWithValue("@ID", ID);
+
+                        // Execute the query
+                        int rowsAffected = cmd.ExecuteNonQuery();
+
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show("Employee deleted successfully!", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            this.eMPLOYEETableAdapter.Fill(this.eMS_DATABASEDataSet.EMPLOYEE);
+                        }
+                        else
+                        {
+                            MessageBox.Show("No employee found with the given ID.", " Error" ,MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                        }
                     }
                 }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error" + ex);
+                }
+                
 
             }
         }

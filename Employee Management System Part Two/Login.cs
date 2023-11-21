@@ -11,6 +11,10 @@ using System.Data.SqlClient;
 using System.Data.Sql;
 using System.Security.Cryptography.X509Certificates;
 using System.Reflection;
+using System.Drawing.Drawing2D;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Xml.Linq;
 
 namespace Employee_Management_System_Part_Two
 {
@@ -21,16 +25,25 @@ namespace Employee_Management_System_Part_Two
             InitializeComponent();
         }
 
-
         SqlConnection conn = new SqlConnection("Data Source=DESKTOP-DCPNVH9\\SQLEXPRESS;Initial Catalog=EMS_DATABASE;Integrated Security=True");
         private void Login_Load(object sender, EventArgs e)
         {
-
         }
-
         private void btnLogin_Click(object sender, EventArgs e)
+
+           
         {
+
+        string username = txtboxUsername.Text;
+            string password = txtboxPassword.Text;  
             conn.Open();
+            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+            {
+                MessageBox.Show("Cannot be Empty", " Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+
+            }
+            
 
             SqlCommand cmd = new SqlCommand("select id, username, [password], [ROLE].roletype from USERS inner join role on users.userrole = [ROLE].roleid\r\nwhere username = @username and [password] = @password ;\r\n", conn);
             cmd.Parameters.AddWithValue("@username", txtboxUsername.Text);
@@ -48,7 +61,7 @@ namespace Employee_Management_System_Part_Two
                 if (usertype == "admin")
                 {
 
-                    MessageBox.Show("Welcome Admin!");
+                    MessageBox.Show("Welcome Admin!", "Logging in as Admin", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Admin admin = new Admin();
                     admin.Show();
                     this.Hide();
@@ -64,15 +77,15 @@ namespace Employee_Management_System_Part_Two
                     MessageBox.Show("Welcome User!");
                 }
 
-                else
+
+
+                else if (usertype != "admin" || usertype != "employee" || usertype != "user")
                 {
-                    return;
+                    MessageBox.Show("Error");
                 }
-
-
-
-
             }
+
+
 
         }
 
