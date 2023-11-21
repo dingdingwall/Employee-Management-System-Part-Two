@@ -28,8 +28,6 @@ namespace Employee_Management_System_Part_Two
 
             btn_Delete.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btn_Delete.Width, btn_Delete.Height, 30, 30));
             btn_Reset.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btn_Reset.Width, btn_Insert.Height, 30, 30));
-
-
             btn_Insert.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btn_Insert.Width, btn_Insert.Height, 30, 30));
         }
 
@@ -181,6 +179,11 @@ namespace Employee_Management_System_Part_Two
             admin.Show();
             this.Hide();
 
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
 
         }
     }
