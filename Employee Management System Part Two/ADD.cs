@@ -14,9 +14,9 @@ using System.Net;
 
 namespace Employee_Management_System_Part_Two
 {
-    public partial class AddEmployee : Form
+    public partial class ADD : Form
     {
-        public AddEmployee()
+        public ADD()
         {
             InitializeComponent();
         }
@@ -157,9 +157,20 @@ namespace Employee_Management_System_Part_Two
 
         }
 
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
 
-       
-        
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+             Admin admin = new Admin();
+            admin.Show();
+            this.Hide();
+
+
+        }
     }
 }
 

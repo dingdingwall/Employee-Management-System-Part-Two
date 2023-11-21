@@ -19,7 +19,7 @@ namespace Employee_Management_System_Part_Two
 
         private void btn_addEmployee_Click(object sender, EventArgs e)
         {
-            AddEmployee add = new AddEmployee();
+            ADD add = new ADD();
             add.Show();
             this.Hide();
         }
@@ -27,6 +27,22 @@ namespace Employee_Management_System_Part_Two
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            Login login = new Login();
+           login.Show();
+            this.Hide();
+            
+
+        }
+
+        private void pictureBox4_Click_1(object sender, EventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
+            this.Hide();
         }
     }
 }

@@ -41,17 +41,20 @@
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
+            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.pictureBox3);
             this.panel1.Controls.Add(this.pictureBox2);
@@ -63,21 +66,23 @@
             this.panel1.Controls.Add(this.pictureBox5);
             this.panel1.Location = new System.Drawing.Point(1, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(309, 689);
+            this.panel1.Size = new System.Drawing.Size(333, 689);
             this.panel1.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Nirmala UI", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(-3, 0);
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Nirmala UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(11, 12);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(252, 50);
+            this.label1.Size = new System.Drawing.Size(95, 37);
             this.label1.TabIndex = 1;
-            this.label1.Text = "DASHBOARD";
+            this.label1.Text = "Home";
             // 
             // pictureBox3
             // 
+            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
             this.pictureBox3.Location = new System.Drawing.Point(11, 515);
             this.pictureBox3.Name = "pictureBox3";
@@ -88,6 +93,7 @@
             // 
             // pictureBox2
             // 
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(6, 367);
             this.pictureBox2.Name = "pictureBox2";
@@ -98,6 +104,7 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(0, 243);
             this.pictureBox1.Name = "pictureBox1";
@@ -112,7 +119,7 @@
             this.btn_Report.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btn_Report.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Report.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Report.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
+            this.btn_Report.ForeColor = System.Drawing.Color.Indigo;
             this.btn_Report.Location = new System.Drawing.Point(83, 500);
             this.btn_Report.Name = "btn_Report";
             this.btn_Report.Size = new System.Drawing.Size(191, 72);
@@ -126,7 +133,7 @@
             this.btn_Department.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btn_Department.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Department.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Department.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
+            this.btn_Department.ForeColor = System.Drawing.Color.Indigo;
             this.btn_Department.Location = new System.Drawing.Point(83, 367);
             this.btn_Department.Name = "btn_Department";
             this.btn_Department.Size = new System.Drawing.Size(191, 79);
@@ -140,7 +147,7 @@
             this.btn_Salary.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btn_Salary.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Salary.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Salary.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
+            this.btn_Salary.ForeColor = System.Drawing.Color.Indigo;
             this.btn_Salary.Location = new System.Drawing.Point(83, 243);
             this.btn_Salary.Name = "btn_Salary";
             this.btn_Salary.Size = new System.Drawing.Size(191, 76);
@@ -154,7 +161,7 @@
             this.btn_addEmployee.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btn_addEmployee.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_addEmployee.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_addEmployee.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
+            this.btn_addEmployee.ForeColor = System.Drawing.Color.Indigo;
             this.btn_addEmployee.Location = new System.Drawing.Point(83, 128);
             this.btn_addEmployee.Name = "btn_addEmployee";
             this.btn_addEmployee.Size = new System.Drawing.Size(191, 72);
@@ -165,6 +172,7 @@
             // 
             // pictureBox5
             // 
+            this.pictureBox5.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
             this.pictureBox5.Location = new System.Drawing.Point(11, 128);
             this.pictureBox5.Name = "pictureBox5";
@@ -178,8 +186,8 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Nirmala UI", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(49)))), ((int)(((byte)(83)))));
-            this.label2.Location = new System.Drawing.Point(122, 9);
+            this.label2.ForeColor = System.Drawing.Color.Indigo;
+            this.label2.Location = new System.Drawing.Point(119, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(342, 50);
             this.label2.TabIndex = 2;
@@ -189,12 +197,25 @@
             // 
             this.panel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel2.BackgroundImage")));
             this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panel2.Controls.Add(this.pictureBox4);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Location = new System.Drawing.Point(307, 0);
+            this.panel2.Location = new System.Drawing.Point(331, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(577, 690);
+            this.panel2.Size = new System.Drawing.Size(562, 690);
             this.panel2.TabIndex = 3;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(501, 6);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(47, 53);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 3;
+            this.pictureBox4.TabStop = false;
+            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click_1);
             // 
             // Admin
             // 
@@ -202,7 +223,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(881, 675);
+            this.ClientSize = new System.Drawing.Size(881, 665);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.ForeColor = System.Drawing.SystemColors.HighlightText;
@@ -218,6 +239,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -235,5 +257,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.PictureBox pictureBox4;
     }
 }
