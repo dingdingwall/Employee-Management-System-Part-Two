@@ -24,70 +24,97 @@ namespace Employee_Management_System_Part_Two
         {
             InitializeComponent();
         }
+        private SqlConnection conn = new SqlConnection("Data Source=DESKTOP-DCPNVH9\\SQLEXPRESS;Initial Catalog=EMS_DATABASE;Integrated Security=True");
 
-        SqlConnection conn = new SqlConnection("Data Source=DESKTOP-DCPNVH9\\SQLEXPRESS;Initial Catalog=EMS_DATABASE;Integrated Security=True");
         private void Login_Load(object sender, EventArgs e)
         {
         }
         private void btnLogin_Click(object sender, EventArgs e)
 
-           
+
         {
 
-        string username = txtboxUsername.Text;
-            string password = txtboxPassword.Text;  
-            conn.Open();
-            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+            string username = txtboxUsername.Text;
+            string password = txtboxPassword.Text;
+
+            try
             {
-                MessageBox.Show("Cannot be Empty", " Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                conn.Open();
+                if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+                {
+                    MessageBox.Show("Cannot be Empty", " Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
 
-            }
+                }
+
+
+                SqlCommand cmd = new SqlCommand("select id, username, [password], [ROLE].roletype from USERS inner join role on users.userrole = [ROLE].roleid\r\nwhere username = @username and [password] = @password ;\r\n", conn);
+                cmd.Parameters.AddWithValue("@username", txtboxUsername.Text);
+                cmd.Parameters.AddWithValue("@password", txtboxPassword.Text);
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                DataTable dataTable = new DataTable();
+                sda.Fill(dataTable);
+                conn.Close();
+
+                if (dataTable.Rows.Count > 0)
+
+                {
+                    string usertype = dataTable.Rows[0]["roletype"].ToString();
+
+                    if (usertype == "admin")
+                    {
+
+                        MessageBox.Show("Welcome Admin!", "Logging in as Admin", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Admin admin = new Admin();
+                        admin.Show();
+                        this.Hide();
+                    }
+
+                    else if (usertype == "employee")
+                    {
+                        MessageBox.Show("Welcome Employee");
+                    }
+
+                    else if (usertype == "user")
+                    {
+                        MessageBox.Show("Welcome User", "Logging in as User", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        User user = new User();
+                        user.Show();
+                        this.Hide();
+                    }
+
+
+
+                    else if (usertype != "admin" || usertype != "employee" || usertype != "user")
+                    {
+                        MessageBox.Show("Error");
+                    }
+
+                    else
+                    {
+                        throw new InvalidOperationException("Invalid username or password.");
+                    }
+                }
             
-
-            SqlCommand cmd = new SqlCommand("select id, username, [password], [ROLE].roletype from USERS inner join role on users.userrole = [ROLE].roleid\r\nwhere username = @username and [password] = @password ;\r\n", conn);
-            cmd.Parameters.AddWithValue("@username", txtboxUsername.Text);
-            cmd.Parameters.AddWithValue("@password", txtboxPassword.Text);
-            SqlDataAdapter sda = new SqlDataAdapter(cmd);
-            DataTable dataTable = new DataTable();
-            sda.Fill(dataTable);
-            conn.Close();
-
-            if (dataTable.Rows.Count > 0)
-
+            }
+            catch (Exception ex)
             {
-                string usertype = dataTable.Rows[0]["roletype"].ToString();
+                MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
-                if (usertype == "admin")
+            finally
+            {
+                if (conn.State == ConnectionState.Open)
                 {
-
-                    MessageBox.Show("Welcome Admin!", "Logging in as Admin", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    Admin admin = new Admin();
-                    admin.Show();
-                    this.Hide();
-                }
-
-                else if (usertype == "employee")
-                {
-                    MessageBox.Show("Welcome Employee");
-                }
-
-                else if (usertype == "user")
-                {
-                    MessageBox.Show("Welcome User!");
-                }
-
-
-
-                else if (usertype != "admin" || usertype != "employee" || usertype != "user")
-                {
-                    MessageBox.Show("Error");
+                    conn.Close();
                 }
             }
 
 
 
         }
+
 
         private void btnClear_Click(object sender, EventArgs e)
         {
