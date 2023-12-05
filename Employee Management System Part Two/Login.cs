@@ -46,6 +46,7 @@ namespace Employee_Management_System_Part_Two
                     MessageBox.Show("Cannot be Empty", " Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
 
+
                 }
 
 
@@ -73,7 +74,12 @@ namespace Employee_Management_System_Part_Two
 
                     else if (usertype == "employee")
                     {
-                        MessageBox.Show("Welcome Employee");
+
+                        MessageBox.Show("Welcome Employee!", "Logging in as Employee", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Employee employee = new Employee();
+                        employee.Show();
+                        this.Hide();
+
                     }
 
                     else if (usertype == "user")
