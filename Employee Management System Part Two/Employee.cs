@@ -64,12 +64,12 @@ namespace Employee_Management_System_Part_Two
                             DateTime paymentDate = Convert.ToDateTime(reader["PaymentDate"]);
 
                             // Display the data in the TextBox
-                            lblSalary.Text = $"Salary Amount: {salaryAmount:C}, Payment Date: {paymentDate:yyyy-MM-dd}";
+                            lblSalary.Text = $"Salary Amount: ₱{salaryAmount:N2}, Payment Date: {paymentDate:yyyy-MM-dd}";
                         }
                         else
                         {
-                            MessageBox.Show("Employee ID not found");
-                           
+                            MessageBox.Show("Employee Not Found", " Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                         }
 
                         reader.Close();
@@ -80,6 +80,19 @@ namespace Employee_Management_System_Part_Two
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
+            this.Hide();
+        }
+
+        private void clearbtn_Click(object sender, EventArgs e)
+        {
+            textBoxView.Text = "";
+            lblSalary.Text = "";
         }
     }
 }
