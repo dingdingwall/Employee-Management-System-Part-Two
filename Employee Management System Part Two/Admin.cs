@@ -44,5 +44,17 @@ namespace Employee_Management_System_Part_Two
             login.Show();
             this.Hide();
         }
+
+        private void btn_Salary_Click(object sender, EventArgs e)
+        {
+            Salary salary = new Salary();
+            salary.Show();
+            this.Hide();
+        }
+
+        private void btn_Department_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
